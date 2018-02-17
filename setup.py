@@ -6,15 +6,20 @@ try:
   from setuptools import setup
 except ImportError:
   from distutils.core import setup
+
+def readme():
+    with open('README.rst') as f:
+        return f.read()
   
-if sys.version_info <= (2, 4):
-  error = 'Requires Python Version 2.5 or above... exiting.'
+if sys.version_info <= (2, 6):
+  error = 'Requires Python Version 2.7 or above... exiting.'
   print >> sys.stderr, error
   sys.exit(1)
 
 setup(name='openrouteservice',
       version='0.1',
       description='Python client for requests to openrouteservice API services',
+      long_description=readme(),
       classifiers=[
               'Development Status :: 4 - Beta',
               'License :: OSI Approved :: Apache Software License',
@@ -25,7 +30,7 @@ setup(name='openrouteservice',
               'Programming Language :: Python :: 3.6',
               ],
       keywords='routing accessibility router OSM ORS openrouteservice openstreetmap isochrone',
-      url='',
+      url='https://github.com/GIScience/openrouteservice-py',
       author='Nils Nolde',
       author_email='nils.nolde@gmail.com',
       license='Apache-2.0',
